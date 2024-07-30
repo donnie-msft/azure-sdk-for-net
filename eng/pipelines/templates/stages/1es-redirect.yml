@@ -44,6 +44,7 @@ extends:
       ${{ if and(eq(variables['Build.DefinitionName'], 'net - core'), eq(variables['Build.SourceBranchName'], 'benbp/baseline'), eq(variables['System.TeamProject'], 'internal')) }}:
         autobaseline:
           isMainPipeline: true
+          enableForGithub: true
       sourceRepositoriesToScan:
         exclude:
           - repository: azure-sdk-build-tools
