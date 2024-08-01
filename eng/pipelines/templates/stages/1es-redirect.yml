@@ -30,7 +30,7 @@ extends:
   ${{ elseif eq(parameters.oneESTemplateTag, 'canary') }}:
     template: v1/1ES.Unofficial.PipelineTemplate.yml@1ESPipelineTemplatesCanary
   ${{ elseif and(parameters.UseOfficial, eq(variables['System.TeamProject'], 'internal')) }}:
-    template: v1/1ES.Official.PipelineTemplate.yml@1ESPipelineTemplates
+    template: v1/1ES.Unofficial.PipelineTemplate.yml@1ESPipelineTemplates
   ${{ else }}:
     template: v1/1ES.Unofficial.PipelineTemplate.yml@1ESPipelineTemplates
   parameters:
@@ -40,6 +40,8 @@ extends:
         - 1ES.PT.Tag-refs/tags/canary
     settings:
       skipBuildTagsForGitHubPullRequests: true
+    featureFlags:
+      autoBaseline: true
     sdl:
       autobaseline:
         isMainPipeline: true
