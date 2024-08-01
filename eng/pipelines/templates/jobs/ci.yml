@@ -58,6 +58,9 @@ jobs:
       Codeql.BuildIdentifier: ${{ parameters.ServiceDirectory }}
       Codeql.SkipTaskAutoInjection: false
       SDKType: ${{ parameters.SDKType }}
+      benbpbranchname: ${{ variables['Build.SourceBranchName'] }}
+      benbpdefname: ${{ variables['Build.DefinitionName'] }}
+      benbpproject: ${{ variables['System.TeamProject'] }}
 
     steps:
       - checkout: self
